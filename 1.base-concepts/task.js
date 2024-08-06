@@ -11,6 +11,12 @@ function solveEquation(a, b, c) {
   }
   return arr;
 }
-console.log(solveEquation());
+console.log(solveEquation(1, 10, 3));
 
-function calculateTotalMortgage(percent, contribution, amount, countMonths) {}
+function calculateTotalMortgage(percent, contribution, amount, countMonths) {
+  percent = percent / 100 / 12;
+  amount = amount - contribution;
+  let sum = amount * (percent + percent / ((1 + percent) ** countMonths - 1));
+  return Number(sum * countMonths).toFixed(2);
+}
+console.log(calculateTotalMortgage(10, 1000, 50000, 12));
