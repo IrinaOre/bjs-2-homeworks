@@ -12,9 +12,9 @@ function solveEquation(a, b, c) {
 console.log(solveEquation());
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  percent = percent / 100 / 12;
-  amount = amount - contribution;
-  let sum = amount * (percent + percent / ((1 + percent) ** countMonths - 1));
-  return Number(sum * countMonths).toFixed(2);
+  let P = percent / 100 / 12;
+  let S = amount - contribution;
+  let sum = S * (P + P / ((1 + P) ** countMonths - 1));
+  return Number((sum * countMonths).toFixed(2));
 }
 console.log(calculateTotalMortgage(10, 1000, 50000, 12));
