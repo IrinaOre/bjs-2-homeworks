@@ -42,9 +42,8 @@ function differenceMaxMinWorker(...arr) {
   let min = arr[0];
 
   for (let i = 0; i < arr.length; i++) {
-    const currentValue = arr[i];
-    if (currentValue > max) max = currentValue;
-    if (currentValue < min) min = currentValue;
+    if (arr[i] > max) max = arr[i];
+    if (arr[i] < min) min = arr[i];
   }
   return max - min;
 }
