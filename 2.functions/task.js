@@ -41,18 +41,21 @@ function differenceMaxMinWorker(...arr) {
   let max = arr[0];
   let min = arr[0];
 
+  if (arr.length === 0) {
+    return 0;
+  }
+
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > max) {
       max = arr[i];
     } else if (arr[i] < min) {
       min = arr[i];
-    } else {
-      continue;
     }
   }
   return max - min;
 }
 console.log(differenceMaxMinWorker(10, 10, 11, 20, 10));
+// console.log(differenceMaxMinWorker());
 
 function differenceEvenOddWorker(...arr) {
   let sumEvenElement = 0;
@@ -75,16 +78,19 @@ console.log(differenceEvenOddWorker(15, 97, 85, 64, 67, 10, 69, 40, 15, 35)); //
 function averageEvenElementsWorker(...arr) {
   let sumEvenElement = 0;
   let countEvenElement = 0;
+  if (arr.length === 0) {
+    return 0;
+  }
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 2 === 0) {
       sumEvenElement += arr[i];
       countEvenElement++;
-    } else {
-      continue;
     }
   }
   return sumEvenElement / countEvenElement;
 }
+
+// console.log(averageEvenElementsWorker());
 
 console.log(averageEvenElementsWorker(1, 2, 3, 4, 5, 6, 7, 8, 9)); // [2, 4, 6, 8] => 5
 console.log(averageEvenElementsWorker(15, 97, 85, 64, 67, 10, 69, 40, 15, 35)); // [64, 10, 40] => 38
