@@ -14,8 +14,6 @@ const getArrayParams = function (...arr) {
       max = arr[i];
     } else if (arr[i] < min) {
       min = arr[i];
-    } else {
-      continue;
     }
     sum += arr[i];
   }
