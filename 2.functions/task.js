@@ -102,12 +102,12 @@ const arr = [
   [30, 41, 55, 96, 62],
 ];
 
-function makeWork(arrOfArray, func) {
-  let maxWorkerResult = Math.max(func(...arrOfArray[0]));
-  for (let i = 0; i < arrOfArray.length; i++) {
-    arrOfArray[i] = func(...arrOfArray[i]);
-    if (arrOfArray[i] > maxWorkerResult) {
-      maxWorkerResult = arrOfArray[i];
+function makeWork(arrOfArr, func) {
+  let maxWorkerResult = func(...arrOfArr[0]);
+  for (let i = 0; i < arrOfArr.length; i++) {
+    const result = func(...arrOfArr[i]);
+    if (result > maxWorkerResult) {
+      maxWorkerResult = result;
     }
   }
   return maxWorkerResult;
