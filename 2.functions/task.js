@@ -103,17 +103,17 @@ const arr = [
 ];
 
 function makeWork(arrOfArray, func) {
-  let maxWorkerResult = func(arrOfArray[0]);
-  arrOfArray = [...arr];
-
+  let maxWorkerResult = Math.max(func(...arrOfArray[0]));
   for (let i = 0; i < arrOfArray.length; i++) {
-    arrOfArray[i] = func(...arrOfArray);
-    let totalEachArray = arrOfArray[i];
-    if (totalEachArray > maxWorkerResult) {
-      totalEachArray = maxWorkerResult;
+    arrOfArray[i] = func(...arrOfArray[i]);
+    if (arrOfArray[i] > maxWorkerResult) {
+      maxWorkerResult = arrOfArray[i];
     }
-    return maxWorkerResult;
   }
+  return maxWorkerResult;
 }
 
-console.log(makeWork(arr, summElementsWorker));
+console.log(makeWork(arr, summElementsWorker)); // максимум из 61, 206, 328, 284 => 328
+console.log(makeWork(arr, differenceMaxMinWorker)); // максимум из 10, 86, 44, 66 => 86
+console.log(makeWork(arr, differenceEvenOddWorker)); // максимум из 39, -6, -184, 92 => 92
+console.log(makeWork(arr, averageEvenElementsWorker)); // максимум из 12.5, 33.333, 72, 62.666 => 72
