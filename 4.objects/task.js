@@ -9,13 +9,11 @@ Student.prototype.setSubject = function (subjectName) {
   this.subject = subjectName;
 };
 
-Student.prototype.addMarks = function (...marks) {
+Student.prototype.marksToAdd = function (...marks) {
   this.marks = marks;
   if (Student.marks === true && Student.marks.length > 0) {
-    return addMarks();
-  } else (Student.excluded === true) {
-    return delete this.marks;
-  } 
+    return marksToAdd();
+  }
 };
 
 Student.prototype.getAverage = function () {
