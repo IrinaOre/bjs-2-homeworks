@@ -11,15 +11,15 @@ Student.prototype.setSubject = function (subjectName) {
 
 Student.prototype.marksToAdd = function (...marks) {
   this.marks = marks;
-  if (Student.marks === true && marks.length > 0) return marksToAdd();
+  if (Student.marks === true && Student.marks.length > 0) return marksToAdd();
 };
 
 Student.prototype.getAverage = function () {
-  for (let i = 0; i < marks.length; i++) {
+  for (let i = 0; i < this.marks.length; i++) {
     let sum = 0;
-    let average = (sum + marks[i]) / Student.marks.length;
+    let average = (sum + this.marks[i]) / this.marks.length;
 
-    if (marks.length === 0 && marks.length === false) {
+    if (this.marks.length === 0 && this.marks.length === false) {
       return 0;
     } else {
       return average;
