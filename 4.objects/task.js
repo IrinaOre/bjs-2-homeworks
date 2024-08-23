@@ -12,7 +12,7 @@ Student.prototype.setSubject = function (subjectName) {
 };
 
 Student.prototype.addMarks = function (...marksToAdd) {
-  if (this.marks === true) {
+  if (this.marks === true && this.marks.length === 0) {
     this.marks.push(...marksToAdd);
   }
 };
