@@ -4,26 +4,27 @@ function Student(name, gender, age) {
   this.age = age;
   this.marks = [];
 }
+let student1 = new Student();
+let student2 = new Student();
 
 Student.prototype.setSubject = function (subjectName) {
   this.subject = subjectName;
 };
 
-Student.prototype.marksToAdd = function (...marks) {
-  this.marks = marks;
-  if (Student.marks === true && Student.marks.length > 0) return marksToAdd();
+Student.prototype.addMarks = function (...marksToAdd) {
+  if (this.marks === true) {
+    this.marks.push(...marksToAdd);
+  }
 };
 
 Student.prototype.getAverage = function () {
+  if (this.marks === false) {
+    return 0;
+  }
+  let sum = 0;
   for (let i = 0; i < this.marks.length; i++) {
-    let sum = 0;
-    let average = (sum + this.marks[i]) / this.marks.length;
-
-    if (this.marks.length === 0 && this.marks.length === false) {
-      return 0;
-    } else {
-      return average;
-    }
+    sum += this.marks[i];
+    return sum / this.marks.length;
   }
 };
 
