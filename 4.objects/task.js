@@ -12,20 +12,21 @@ Student.prototype.setSubject = function (subjectName) {
 };
 
 Student.prototype.addMarks = function (...marksToAdd) {
-  if (this.marks === true && this.marks.length === 0) {
-    this.marks.push(...marksToAdd);
+  if (this.marks.length === 0 && this.marks === false) {
+    return 0;
   }
+  this.marks = marksToAdd;
 };
 
 Student.prototype.getAverage = function () {
-  if (this.marks === false) {
+  if (this.marks.length === 0 && this.marks === false) {
     return 0;
   }
   let sum = 0;
   for (let i = 0; i < this.marks.length; i++) {
     sum += this.marks[i];
-    return sum / this.marks.length;
   }
+  return sum / this.marks.length;
 };
 
 Student.prototype.exclude = function (reason) {
