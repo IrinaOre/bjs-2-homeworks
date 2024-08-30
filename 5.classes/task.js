@@ -16,15 +16,26 @@ class PrintEditionItem {
   }
 
   set state(value) {
-    if (value > 0 && value < 100) {
-      this._state = value;
+    if (value <= 0) {
+      this._state = 0;
     } else if (value >= 100) {
       this._state = 100;
     } else {
-      this._state = 0;
+      this._state = value;
     }
   }
 }
+
+const sherlock = new PrintEditionItem(
+  "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе",
+  2019,
+  1008
+);
+
+console.log(sherlock.releaseDate); //2019
+console.log(sherlock.state); //100
+sherlock.fix();
+console.log(sherlock.state); //100
 
 class Magazine extends PrintEditionItem {
   constructor(name, releaseDate, pagesCount, state, type) {
@@ -59,3 +70,15 @@ class DetectiveBook extends Book {
     this.type = "detective";
   }
 }
+const picknick = new FantasticBook(
+  "Аркадий и Борис Стругацкие",
+  "Пикник на обочине",
+  1972,
+  168
+);
+
+console.log(picknick.author); //"Аркадий и Борис Стругацкие"
+picknick.state = 10;
+console.log(picknick.state); //10
+picknick.fix();
+console.log(picknick.state); //15
