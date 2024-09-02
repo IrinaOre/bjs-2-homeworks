@@ -85,27 +85,28 @@ console.log(picknick.state); //15
 
 class Library {
   constructor(name, books) {
-    this.name = "";
+    this.name = name;
     this.books = [];
   }
   addBook(book) {
-    if (this.state > 30) {
-      this.books.push();
+    if (book.state > 30) {
+      this.books.push(book);
     }
   }
   findBookBy(type, value) {
-    if (type) {
+    if (this.books.find((el) => el.type === value)) {
       return value;
     } else {
       return null;
     }
   }
+
   giveBookByName(bookName) {
-    if (bookName) {
-      delete this.books.bookName;
-      return this.books.bookName;
-    } else {
+    if (this.books.find((el) => el != bookName)) {
       return null;
+    } else {
+      delete this.books.filter((el) => el === bookName);
+      return bookName;
     }
   }
 }
