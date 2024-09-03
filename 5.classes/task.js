@@ -94,7 +94,7 @@ class Library {
     }
   }
   findBookBy(type, value) {
-    if (this.books.find((el) => el.type === value)) {
+    if (this.books.find((el) => el[type] === value)) {
       return value;
     } else {
       return null;
