@@ -94,19 +94,22 @@ class Library {
     }
   }
   findBookBy(type, value) {
-    if (this.books.find((el) => el[type] === value)) {
-      return value;
+    const book = this.books.find((el) => el[type] === value);
+    if (book !== undefined) {
+      return book;
     } else {
       return null;
     }
   }
 
   giveBookByName(bookName) {
-    if (this.books.find((el) => el[type] !== bookName)) {
-      return null;
-    } else {
-      const deletedBook = this.books.filter((el) => el[type] === bookName);
+    const indexOfBook = this.books.findIndex((book) => book.name === bookName);
+    if (indexOfBook !== -1) {
+      const deletedBook = this.books[indexOfBook];
+      this.books.splice(indexOfBook, 1);
       return deletedBook;
+    } else {
+      return null;
     }
   }
 }
