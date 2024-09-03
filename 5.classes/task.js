@@ -102,11 +102,11 @@ class Library {
   }
 
   giveBookByName(bookName) {
-    if (this.books.find((el) => el != bookName)) {
+    if (this.books.find((el) => el[type] !== bookName)) {
       return null;
     } else {
-      delete this.books.filter((el) => el === bookName);
-      return bookName;
+      const deletedBook = this.books.filter((el) => el[type] === bookName);
+      return deletedBook;
     }
   }
 }
