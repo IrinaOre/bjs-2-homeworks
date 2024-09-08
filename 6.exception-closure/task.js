@@ -20,6 +20,7 @@ class Triangle {
     this.b = b;
     this.c = c;
     this.perimeter = 0;
+    this.area = 0;
 
     if (
       this.a + this.b < this.c ||
@@ -36,5 +37,15 @@ class Triangle {
   set perimeter(value) {
     value = this.a + this.b + this.c;
     this._perimeter = value;
+  }
+  get area() {
+    return this._area;
+  }
+  set area(value) {
+    let p = this.perimeter * 0.5;
+    value = Number(
+      Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c))
+    ).toFixed(3);
+    this._area = value;
   }
 }
