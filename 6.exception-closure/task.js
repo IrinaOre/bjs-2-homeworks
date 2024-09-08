@@ -13,3 +13,28 @@ const validateCount = function (valueToParse) {
     return error;
   }
 };
+
+class Triangle {
+  constructor(a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    this.perimeter = 0;
+
+    if (
+      this.a + this.b < this.c ||
+      this.a + this.c < this.b ||
+      this.b + this.c < this.a
+    ) {
+      throw new Error("Треугольник с такими сторонами не существует.");
+    }
+  }
+
+  get perimeter() {
+    return this._perimeter;
+  }
+  set perimeter(value) {
+    value = this.a + this.b + this.c;
+    this._perimeter = value;
+  }
+}
