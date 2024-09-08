@@ -1,11 +1,10 @@
 ﻿const parseCount = function (valueToParse) {
-  if (!Number.parseFloat(valueToParse)) {
+  const parsedValue = Number.parseFloat(valueToParse);
+  if (!parsedValue) {
     throw new Error("Невалидное значение");
-  } else {
-    return Number.parseFloat(valueToParse);
   }
+  return parsedValue;
 };
-// console.log(parseCount("66hh86"));
 
 const validateCount = function (valueToParse) {
   try {
