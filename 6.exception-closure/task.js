@@ -8,10 +8,10 @@
 
 const validateCount = function (valueToParse) {
   try {
-    return parseCount(valueToParse);
+    parseCount(valueToParse.toFixed(2));
   } catch (error) {
     console.log(error);
   } finally {
-    return validateCount(valueToParse);
+    return validateCount(Number(valueToParse.toFixed(2)));
   }
 };
