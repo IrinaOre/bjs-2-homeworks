@@ -1,17 +1,16 @@
 ﻿const parseCount = function (valueToParse) {
-  if (Number.isNaN(valueToParse)) {
+  if (!Number.parseFloat(valueToParse)) {
     throw new Error("Невалидное значение");
   } else {
     return Number.parseFloat(valueToParse);
   }
 };
+// console.log(parseCount("66hh86"));
 
 const validateCount = function (valueToParse) {
   try {
-    parseCount(valueToParse.toFixed(2));
+    return parseCount(valueToParse);
   } catch (error) {
-    console.log(error);
-  } finally {
-    return validateCount(Number(valueToParse.toFixed(2)));
+    return error;
   }
 };
