@@ -49,3 +49,19 @@ class Triangle {
     this._area = value;
   }
 }
+
+const getTriangle = function (a, b, c) {
+  try {
+    const object = {
+      get area() {
+        return this._area;
+      },
+      get perimeter() {
+        return this._perimeter;
+      },
+    };
+    return object;
+  } catch (error) {
+    return getTriangle("Ошибка! Треугольник не существует!");
+  }
+};
