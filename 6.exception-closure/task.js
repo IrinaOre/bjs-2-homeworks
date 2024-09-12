@@ -36,13 +36,19 @@ class Triangle {
     ).toFixed(3);
   }
 }
-// const triangle = new Triangle(2,3,4);
-// console.log(triangle);
 
 const getTriangle = function (a, b, c) {
+  let obj = {
+    get area() {
+      return "Ошибка! Треугольник не существует";
+    },
+    get perimeter() {
+      return "Ошибка! Треугольник не существует";
+    },
+  };
   try {
-    return new Triangle(a, b, c);
+    return obj;
   } catch (error) {
-    return new Triangle("Ошибка! Треугольник не существует");
+    return error;
   }
 };
