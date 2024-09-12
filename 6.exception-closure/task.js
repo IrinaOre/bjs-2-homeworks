@@ -26,22 +26,17 @@ class Triangle {
   }
 
   get perimeter() {
-    return this._perimeter;
+    return this.a + this.b + this.c;
   }
-  set perimeter(value) {
-    value = a + b + c;
-    this._perimeter = value;
-  }
+
   get area() {
-    return this._area;
-  }
-  set area(value) {
     let p = this.perimeter * 0.5;
-    value = Number(Math.sqrt(p * (p - a) * (p - b) * (p - c))).toFixed(3);
-    this._area = value;
+    return Number(
+      Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c))
+    ).toFixed(3);
   }
 }
-const triangle = new Triangle();
+// const triangle = new Triangle(2,3,4);
 // console.log(triangle);
 
 const getTriangle = function (a, b, c) {
