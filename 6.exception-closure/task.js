@@ -38,17 +38,17 @@ class Triangle {
 }
 
 const getTriangle = function (a, b, c) {
-  let obj = {
-    get area() {
-      return "Ошибка! Треугольник не существует";
-    },
-    get perimeter() {
-      return "Ошибка! Треугольник не существует";
-    },
-  };
   try {
-    return obj;
+    return new Triangle(a, b, c);
   } catch (error) {
-    return error;
+    let obj = {
+      get area() {
+        return "Ошибка! Треугольник не существует";
+      },
+      get perimeter() {
+        return "Ошибка! Треугольник не существует";
+      },
+    };
+    return obj;
   }
 };
